@@ -58,8 +58,15 @@
 
         .image-row {
             display: flex;
+            flex-wrap: wrap; /* Allow images to wrap */
             justify-content: space-between; /* Space between the images */
             margin-bottom: 20px; /* Space below the image row */
+        }
+
+        .image-row img {
+            flex: 1 1 48%; /* Flex-grow, flex-shrink, and basis for images */
+            max-width: 48%; /* Prevent images from being too large */
+            margin: 0 1%; /* Margin between images */
         }
 
         h2, h3 {
@@ -97,17 +104,42 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 600px) {
+        @media (max-width: 1200px) {
             header h1 {
-                font-size: 2rem; /* Adjust header size for small screens */
+                font-size: 2rem; /* Adjust header size for medium screens */
             }
 
             header p {
-                font-size: 1rem; /* Adjust paragraph size for small screens */
+                font-size: 1rem; /* Adjust paragraph size for medium screens */
             }
 
             .project-details {
-                padding: 20px; /* Reduce padding on smaller screens */
+                padding: 30px; /* Reduce padding on medium screens */
+            }
+        }
+
+        @media (max-width: 900px) {
+            header h1 {
+                font-size: 1.8rem; /* Adjust header size for smaller screens */
+            }
+
+            .project-details {
+                padding: 20px; /* Further reduce padding */
+            }
+
+            .image-row img {
+                flex: 1 1 100%; /* Make images full width on smaller screens */
+                max-width: 100%; /* Ensure they do not exceed container width */
+            }
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.5rem; /* Further adjust header size */
+            }
+
+            header p {
+                font-size: 0.9rem; /* Adjust paragraph size for small screens */
             }
 
             .project-details img {
